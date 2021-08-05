@@ -1,0 +1,26 @@
+input,
+textarea {
+  font: default;
+  width: 500px;
+  /* color: silver; */
+  /* height: 20px; */
+  font-size: 1em;
+  /* height: 8px; */
+  /* border-radius: 1%; */
+  padding: 1px;
+  margin: 5px;
+  max-height: 80px;
+  max-width: 500px;
+}
+
+.form-container {
+  width: 600px;
+}
+
+h3 {
+  margin: 45px;
+  margin-top: 45px;
+  margin-bottom: 0px;
+  font-size: 1em;
+  text-align: left;
+}

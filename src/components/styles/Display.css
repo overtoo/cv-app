@@ -1,0 +1,85 @@
+.container {
+  font-family: "Montserrat", sans-serif;
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 5px;
+  margin-top: 20px;
+  height: 1000px;
+}
+
+.section-one {
+  display: flex;
+  justify-content: space-between;
+  /* border-style: dashed; */
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.name-role-wrapper {
+  /* width: 60%; */
+  text-align: left;
+  padding: 0px;
+  /* border-style: dashed; */
+  overflow: hidden;
+}
+
+.name {
+  font-size: 40px;
+  font-weight: 1000;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0px;
+}
+
+.role {
+  color: grey;
+  font-size: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.contact-info-wrapper {
+  position: relative;
+  left: 0px;
+  /* border-style: dashed; */
+  flex-direction: row;
+}
+
+.contact-info {
+  font-size: 13px;
+  text-align: left;
+  margin-top: 6px;
+}
+
+.section-two {
+  border-top: solid;
+  border-color: #377ea4;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.intro {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.title {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #377ea4;
+}
+
+.section {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-three {
+  margin-top: 20px;
+  align-items: left;
+  text-align: left;
+}

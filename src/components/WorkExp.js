@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
-import "./styles/PersonalInfo.css";
+import "./styles/WorkExp.css";
 
-class PersonalInfo extends React.Component {
+class WorkExp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       info: {
-        firstName: "Grab",
         id: uniqid(),
-        lastName: "Grsuff",
+        company: "Gabajo Enterprises",
         role: "Ass Photographer",
-        number: "048 89123 1243",
-        address: "3/12 Clusteu Blvd",
-        email: "graiul.Grsuff@grmail.com",
-        intro:
-          "I am an ASS photographer looking to take photos of ASSES if yall need an ASS photographer hit me up. I am an ASS photographer looking to take photos of ASS. I am an ASS photographer looking to take photos of ASS.",
+        start: "2018",
+        end: "Present",
+        description:
+          "I was primarily responsible for shooting a lot of ASS to take photos of ASSES if ASS photographer hit of ASS. I am an ASS photographer looking to take photos of ASS.",
       },
     };
   }
+
+  
 
   componentDidMount() {
     this.props.parentCallback(this.state.info);
@@ -40,18 +40,12 @@ class PersonalInfo extends React.Component {
     return (
       <div className="form-container">
         <form>
-          <h3>Personal Details</h3>
+          <h3>Work Experience</h3>
           <input
             onChange={this.handleChange}
-            value={info.firstName}
+            value={info.company}
             type="text"
-            id="firstName"
-          />
-          <input
-            onChange={this.handleChange}
-            value={info.lastName}
-            type="text"
-            id="lastName"
+            id="company"
           />
           <input
             onChange={this.handleChange}
@@ -61,28 +55,21 @@ class PersonalInfo extends React.Component {
           />
           <input
             onChange={this.handleChange}
-            value={info.number}
+            value={info.start}
             type="text"
-            id="number"
+            id="start"
           />
           <input
             onChange={this.handleChange}
-            value={info.email}
+            value={info.end}
             type="text"
-            id="email"
-          />
-          <input
-            onChange={this.handleChange}
-            value={info.address}
-            type="text"
-            id="address"
+            id="end"
           />
           <textarea
             onChange={this.handleChange}
-            rows="5"
-            value={info.intro}
+            value={info.description}
             type="text"
-            id="intro"
+            id="description"
           />
         </form>
       </div>
@@ -90,4 +77,4 @@ class PersonalInfo extends React.Component {
   }
 }
 
-export default PersonalInfo;
+export default WorkExp;
