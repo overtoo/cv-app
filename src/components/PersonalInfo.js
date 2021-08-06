@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
-import "./styles/PersonalInfo.css";
+import "./styles/Styles.css";
 
 class PersonalInfo extends React.Component {
   constructor(props) {

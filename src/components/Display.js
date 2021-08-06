@@ -22,12 +22,32 @@ const Display = (props) => {
       </div>
       <div className="section section-three">
         <div className="title">Work Experience</div>
-        <p>{props.data2.workExp.company}</p>
+        {console.log(props.data2.workExp)}
+        {console.log("above")}
+
+        {props.data2.workExp.map((work) => {
+          return (
+            <div>
+              <div>
+                <span>{work.role}</span>
+                <span class="floatright">
+                  {work.company} | {work.start} - {work.end}
+                </span>
+              </div>
+              <div>
+                <span>{work.description}</span>
+              </div>
+
+              <p></p>
+            </div>
+          );
+        })}
+        {/* <p>{props.data2.workExp.company}</p>
         <p>{props.data2.workExp.role}</p>
         <p>
           {props.data2.workExp.start} - {props.data2.workExp.end}
         </p>
-        <p>{props.data2.workExp.description}</p>
+        <p>{props.data2.workExp.description}</p> */}
       </div>
 
       <div className="section section-four">

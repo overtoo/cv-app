@@ -1,77 +1,139 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
-import "./styles/WorkExp.css";
+import "./styles/Styles.css";
 
 class WorkExp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      info: {
-        id: uniqid(),
-        company: "Gabajo Enterprises",
-        role: "Ass Photographer",
-        start: "2018",
-        end: "Present",
-        description:
-          "I was primarily responsible for shooting a lot of ASS to take photos of ASSES if ASS photographer hit of ASS. I am an ASS photographer looking to take photos of ASS.",
-      },
+      works: [
+        {
+          id: uniqid(),
+          company: "Gabajo Enterprises",
+          role: " Photographer",
+          start: "2018",
+          end: "Present",
+          description: "I was primarily responsible for ....",
+        },
+        {
+          id: uniqid(),
+          company: "Clustards Incorporated",
+          role: " Photographer",
+          start: "2018",
+          end: "Present",
+          description: "I was primarily responsible for ....",
+        },
+      ],
     };
   }
 
-  
-
   componentDidMount() {
-    this.props.parentCallback(this.state.info);
+    this.props.parentCallback(this.state.works);
   }
 
-  handleChange = (e) => {
+  handleChange = (e, id) => {
     this.setState((prevState) => {
-      let info = Object.assign({}, prevState.info);
+      let infoOld = prevState.works.find(function (obj) {
+        console.log(obj.id);
+        return obj.id == id;
+      });
+      let info = Object.assign({}, infoOld);
       info[e.target.id] = e.target.value;
-      return { info };
+      let works = this.state.works;
+      works[this.state.works.indexOf(infoOld)] = info;
+      return { works };
     });
 
-    this.props.parentCallback(this.state.info);
+    this.props.parentCallback(this.state.works);
+  };
+
+  delete = (id) => {
+    let myArray = this.state.works.filter(function (obj) {
+      return obj.id !== id;
+    });
+
+    this.setState({
+      works: myArray,
+    });
+  };
+
+  add = () => {
+    let addThis = {
+      id: uniqid(),
+      company: "",
+      role: "",
+      description: " ",
+      start: "",
+      end: "",
+    };
+    // console.log(newWorks);
+
+    // this.setState({
+    //   works: newWorks,
+    // });
+
+    this.setState({ works: [...this.state.works, addThis] });
+
+    console.log(this.state.works);
   };
 
   render() {
-    const { info } = this.state;
+    const { works } = this.state;
     return (
       <div className="form-container">
-        <form>
-          <h3>Work Experience</h3>
-          <input
-            onChange={this.handleChange}
-            value={info.company}
-            type="text"
-            id="company"
-          />
-          <input
-            onChange={this.handleChange}
-            value={info.role}
-            type="text"
-            id="role"
-          />
-          <input
-            onChange={this.handleChange}
-            value={info.start}
-            type="text"
-            id="start"
-          />
-          <input
-            onChange={this.handleChange}
-            value={info.end}
-            type="text"
-            id="end"
-          />
-          <textarea
-            onChange={this.handleChange}
-            value={info.description}
-            type="text"
-            id="description"
-          />
-        </form>
+        <h3>Work Experience</h3>
+        {works.map((info) => {
+          return (
+            <form key={info.id}>
+              <input
+                onChange={(e) => this.handleChange(e, info.id)}
+                value={info.company}
+                type="text"
+                id="company"
+              />
+              <input
+                onChange={(e) => this.handleChange(e, info.id)}
+                value={info.role}
+                type="text"
+                id="role"
+              />
+              <input
+                onChange={(e) => this.handleChange(e, info.id)}
+                value={info.start}
+                type="text"
+                id="start"
+              />
+              <input
+                onChange={(e) => this.handleChange(e, info.id)}
+                value={info.end}
+                type="text"
+                id="end"
+              />
+              <textarea
+                onChange={(e) => this.handleChange(e, info.id)}
+                value={info.description}
+                type="text"
+                id="description"
+              />
+              <br></br>
+              <button
+                onClick={() => {
+                  this.delete(info.id);
+                }}
+              >
+                delete
+              </button>
+            </form>
+          );
+        })}
+        <button
+          onClick={() => {
+            this.add();
+          }}
+        >
+          add
+        </button>
       </div>
     );
   }
